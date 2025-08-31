@@ -238,7 +238,7 @@ struct ProjectOptions: ParsableArguments {
 struct MiscOptions: ParsableArguments {
   @Option(help: """
     The project root directory, which is the parent directory of the Swift repo.
-    By default this is inferred from the build directory path.
+    By default, this is inferred from the build directory path.
     """)
   var projectRootDir: AnyPath?
 

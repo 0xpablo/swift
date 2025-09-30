@@ -188,7 +188,7 @@
                 "zlib": "v1.3.1",
                 "brotli": "v1.1.0",
                 "mimalloc": "v3.0.3",
-                "swift-subprocess": "0.1"
+                "swift-subprocess": "development-snapshot-2025-07-21"
             }
         },
         "release/6.2": {
@@ -619,7 +619,7 @@
                 "zlib": "v1.3.1",
                 "brotli": "v1.1.0",
                 "mimalloc": "v3.0.3",
-                "swift-subprocess": "0.1"
+                "swift-subprocess": "development-snapshot-2025-07-21"
             }
         },
         "next" : {
@@ -679,7 +679,7 @@
                 "zlib": "v1.3.1",
                 "brotli": "v1.1.0",
                 "mimalloc": "v3.0.3",
-                "swift-subprocess": "0.1"
+                "swift-subprocess": "development-snapshot-2025-07-21"
             }
         }
     }

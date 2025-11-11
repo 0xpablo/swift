@@ -602,7 +602,7 @@ swift::FragileFunctionKindRequest::evaluate(Evaluator &evaluator,
 bool DeclContext::isInnermostContextGeneric() const {
   if (auto Decl = getAsDecl())
     if (auto GC = Decl->getAsGenericContext())
-      return GC->isGeneric();
+      return GC->hasGenericParamList();
   return false;
 }
 

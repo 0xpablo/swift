@@ -476,7 +476,7 @@ bool AbstractFunctionDecl::isDistributedActorSystemRemoteCall(bool isVoidReturn)
   auto &C = getASTContext();
   auto *DC = getDeclContext();
 
-  if (!DC->isTypeContext() || !isGeneric())
+  if (!DC->isTypeContext() || !hasGenericParamList())
     return false;
 
   // === Check the name
@@ -521,7 +521,7 @@ bool AbstractFunctionDecl::isDistributedActorSystemRemoteCall(bool isVoidReturn)
   }
 
   // === Check generics
-  if (!isGeneric()) {
+  if (!hasGenericParamList()) {
     return false;
   }
 
@@ -818,7 +818,7 @@ AbstractFunctionDecl::isDistributedTargetInvocationEncoderRecordArgument() const
     }
 
     // === Check generics
-    if (!isGeneric()) {
+    if (!hasGenericParamList()) {
       return false;
     }
 
@@ -958,7 +958,7 @@ AbstractFunctionDecl::isDistributedTargetInvocationEncoderRecordReturnType() con
   }
 
   // === Check generics
-  if (!isGeneric()) {
+  if (!hasGenericParamList()) {
     return false;
   }
 
@@ -1087,7 +1087,7 @@ AbstractFunctionDecl::isDistributedTargetInvocationEncoderRecordErrorType() cons
     }
 
     // === Check generics
-    if (!isGeneric()) {
+    if (!hasGenericParamList()) {
       return false;
     }
 
@@ -1197,7 +1197,7 @@ AbstractFunctionDecl::isDistributedTargetInvocationDecoderDecodeNextArgument() c
 
 
     // === Check generics
-    if (!isGeneric()) {
+    if (!hasGenericParamList()) {
       return false;
     }
 
@@ -1291,7 +1291,7 @@ AbstractFunctionDecl::isDistributedTargetInvocationResultHandlerOnReturn() const
     }
 
     // === Check generics
-    if (!isGeneric()) {
+    if (!hasGenericParamList()) {
       return false;
     }
 

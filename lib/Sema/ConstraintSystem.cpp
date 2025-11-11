@@ -5076,7 +5076,7 @@ bool ConstraintSystem::isArgumentGenericFunction(Type argType, Expr *argExpr) {
       auto choice = selectedOverload->choice;
       if (auto func =
               dyn_cast_or_null<AbstractFunctionDecl>(choice.getDeclOrNull())) {
-        if (func->isGeneric())
+        if (func->hasGenericParamList())
           return true;
       }
 
@@ -5099,7 +5099,7 @@ bool ConstraintSystem::isArgumentGenericFunction(Type argType, Expr *argExpr) {
       continue;
 
     if (auto func = dyn_cast<AbstractFunctionDecl>(decl))
-      if (func->isGeneric())
+      if (func->hasGenericParamList())
         return true;
   }
 

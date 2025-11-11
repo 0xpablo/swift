@@ -6378,7 +6378,7 @@ namespace {
 
       if (auto *GTD = dyn_cast<GenericTypeDecl>(typeDecl)) {
         typealias->setGenericSignature(GTD->getGenericSignature());
-        if (GTD->isGeneric()) {
+        if (GTD->hasGenericParamList()) {
           typealias->getASTContext().evaluator.cacheOutput(
                 GenericParamListRequest{typealias},
                 std::move(GTD->getGenericParams()->clone(typealias)));
@@ -6601,7 +6601,7 @@ Decl *SwiftDeclConverter::importCompatibilityTypeAlias(
   auto *GTD = dyn_cast<GenericTypeDecl>(typeDecl);
   if (GTD && !isa<ProtocolDecl>(GTD)) {
     alias->setGenericSignature(GTD->getGenericSignature());
-    if (GTD->isGeneric()) {
+    if (GTD->hasGenericParamList()) {
       alias->getASTContext().evaluator.cacheOutput(
             GenericParamListRequest{alias},
             std::move(GTD->getGenericParams()->clone(alias)));

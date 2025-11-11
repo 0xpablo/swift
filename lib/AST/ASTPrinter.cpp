@@ -2936,7 +2936,7 @@ void PrintAST::printMembers(ArrayRef<Decl *> members, bool needComma,
 }
 
 void PrintAST::printGenericDeclGenericParams(GenericContext *decl) {
-  if (decl->isGeneric())
+  if (decl->hasGenericParamList())
     if (auto GenericSig = decl->getGenericSignature()) {
       Printer.printStructurePre(PrintStructureKind::DeclGenericParameterClause);
       printGenericSignature(GenericSig, PrintParams | InnermostOnly);
@@ -6299,7 +6299,7 @@ public:
     printQualifiedType(T);
 
     auto *typeAliasDecl = T->getDecl();
-    if (typeAliasDecl->isGeneric()) {
+    if (typeAliasDecl->hasGenericParamList()) {
       if (Options.PrintTypesForDebugging)
         printGenericArgs(T->getDirectGenericArgs());
       else

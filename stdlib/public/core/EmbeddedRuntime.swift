@@ -579,3 +579,19 @@ func _embeddedReportFatalErrorInFile(prefix: StaticString, message: UnsafeBuffer
   if message.count > 0 { print(": ", terminator: "") }
   unsafe print(message)
 }
+
+// CXX Exception Personality
+
+typealias _Unwind_Action = CInt
+typealias _Unwind_Reason_Code = CInt
+
+@_cdecl("_swift_exceptionPersonality")
+func _swift_exceptionPersonality(
+  version: CInt,
+  actions: _Unwind_Action,
+  exceptionClass: UInt64,
+  exceptionObject: UnsafeMutableRawPointer,
+  context: UnsafeMutableRawPointer
+) -> _Unwind_Reason_Code {
+  fatalError("C++ exception handling detected but the Embedded Swift runtime does not support exceptions")
+}
